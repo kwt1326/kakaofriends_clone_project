@@ -13,6 +13,7 @@
     "axios": "^0.20.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "typescript": "~3.7.2"
@@ -43,6 +44,8 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.6",
+    "babel-plugin-emotion": "^10.0.33",
+    "dummyjs": "^1.1.7",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.21.2",

@@ -6,7 +6,6 @@ export const MainHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 3em;
-  border-bottom: 0.5px solid lightgrey;
 `;
 export const MainUl = styled.ul`
   list-style: none;

@@ -1,12 +1,12 @@
-import React, { Component, Fragment } from 'react';
-import { Route, Switch } from 'react-router';
-import axios from 'axios';
+import React, { Component, Fragment } from "react";
+import { Route, Switch } from "react-router";
+import axios from "axios";
 
-import Header from '../Components/Header';
-import Home from './Home'
+import Header from "../Components/Header";
+import Home from "./Home";
 
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.withCredentials = true;
 
 class Router extends Component {
@@ -18,7 +18,8 @@ class Router extends Component {
           <Route
             exact
             path="/"
-            render={(routeProps: any) => <Home {...routeProps} />} />
+            render={(routeProps: any) => <Home {...routeProps} />}
+          />
           {/* <Route
             exact
             path="/login"
@@ -29,7 +30,7 @@ class Router extends Component {
             render={(routeProps: any) => <Register {...routeProps} />} /> */}
         </Switch>
       </Fragment>
-    )
+    );
   }
 }
 
