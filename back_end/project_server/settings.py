@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'corsheaders',
     'project_app',
 ]
@@ -70,7 +71,6 @@ TEMPLATES = [
     },
 ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR.parent, 'front_end', 'build', 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR.parent, 'front_end/build/static')
 ]
