@@ -1,45 +1,39 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 //import * as Router from "react-router";
 import HeaderList from "./headerList";
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-class Header extends Component {
-  constructor(props: any) {
-    super(props);
-    //this.state = {};
-  }
+import * as S from "./styles";
+//import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
+//import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 
-  render() {
-    return (
-      <div>
-        <header
-          css={css`
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: yellow;
-          `}
-        >
-          <div className="menu">
-            <span>카테고리</span>
-            <span>매장안내</span>
-            <span>고객센터</span>
-          </div>
-          <h3>KAKAO FRIENDS</h3>
-          <div
-            css={css`
-              display: flex;
-            `}
-          >
-            <input type="search" placeholder="무엇을 찾으세요?" />
-            <div>icon1</div>
-            <div>icon2</div>
-          </div>
-        </header>
-        <HeaderList />
-      </div>
-    );
-  }
-}
+const Header = () => {
+  const [isHovered, SetIsHovered] = useState(false);
+  const handleHover = () => {
+    SetIsHovered(!isHovered);
+  };
+  return (
+    <div>
+      <S.MainHeader>
+        <S.MainUl>
+          <S.MainLi onMouseOver={handleHover}>카테고리</S.MainLi>
+          <S.MainLi>매장안내</S.MainLi>
+          <S.MainLi>고객센터</S.MainLi>
+        </S.MainUl>
+        <S.MainHome>KAKAO FRIENDS</S.MainHome>
+        <S.MainInfo>
+          <S.MainInput type="search" placeholder="무엇을 찾으세요?" />
+          <S.MainIcon>icon1</S.MainIcon>
+          <S.MainIcon>icon2</S.MainIcon>
+        </S.MainInfo>
+      </S.MainHeader>
+      {isHovered && (
+        <S.MainMenuDiv onMouseLeave={handleHover}>
+          <HeaderList />
+        </S.MainMenuDiv>
+      )}
+    </div>
+  );
+};
 
 export default Header;
