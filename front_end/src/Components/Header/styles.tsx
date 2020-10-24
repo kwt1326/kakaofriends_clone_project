@@ -24,6 +24,10 @@ export const MainInfo = styled.div`
 export const MainIcon = styled.div`
   padding: 0.5em;
 `;
+export const MainIconImage = styled.img`
+  width: 18px;
+  height: 19px;
+`;
 export const MainHome = styled.h3`
   background-color: black;
   color: white;

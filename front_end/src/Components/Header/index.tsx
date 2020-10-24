@@ -4,8 +4,8 @@ import HeaderList from "./headerList";
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import * as S from "./styles";
-//import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
-//import PermIdentityIcon from "@material-ui/icons/PermIdentity";
+const imageMypage = require("../../assets/images/icon_header_mypage.png");
+const imageBusket = require("../../assets/images/icon_header_basket.png");
 
 const Header = () => {
   const [isHovered, SetIsHovered] = useState(false);
@@ -23,8 +23,12 @@ const Header = () => {
         <S.MainHome>KAKAO FRIENDS</S.MainHome>
         <S.MainInfo>
           <S.MainInput type="search" placeholder="무엇을 찾으세요?" />
-          <S.MainIcon>icon1</S.MainIcon>
-          <S.MainIcon>icon2</S.MainIcon>
+          <S.MainIcon>
+            <S.MainIconImage src={imageMypage} />
+          </S.MainIcon>
+          <S.MainIcon>
+            <S.MainIconImage src={imageBusket} />
+          </S.MainIcon>
         </S.MainInfo>
       </S.MainHeader>
       {isHovered && (
