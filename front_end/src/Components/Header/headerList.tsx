@@ -1,8 +1,6 @@
 import React from "react";
 import Characters from "./characters";
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import * as S from "./styles";
+import * as S from "./headerList_styles";
 
 const HeaderList = () => {
   return (

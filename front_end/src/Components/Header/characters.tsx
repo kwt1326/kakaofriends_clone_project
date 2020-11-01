@@ -1,7 +1,5 @@
 import React from "react";
-/** @jsx jsx */
-import { jsx, css } from "@emotion/core";
-import * as S from "./styles";
+import * as S from "./characters_styles";
 const Characters = () => {
   return (
     <S.CharSection>
