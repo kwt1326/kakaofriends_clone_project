@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'project_server.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = config["LOCAL_ENV_DATABASES"]
+# DATABASES = config["DEVELOP_ENV_DATABASES"]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
