@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { axiosApiCall, callApiProps } from '../../utils/callApi'
+import React, { useEffect } from "react";
+import { axiosApiCall, callApiProps } from "../../utils/callApi";
+import MainTab from "../../Components/MainTab";
 
 const Home = (props: any) => {
   // @callapi 예시
@@ -21,9 +22,7 @@ const Home = (props: any) => {
   //   applyProduct()
   // })
 
-  return (
-    <h1>hello world!</h1>
-  )
-}
+  return <MainTab />;
+};
 
 export default Home;

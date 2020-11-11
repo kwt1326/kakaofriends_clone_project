@@ -1,2 +1,2 @@
 from django.db import models
-from project_app.model.product import Product
+from .model import Product

@@ -1,10 +1,14 @@
 from django.urls import path, include
-from project_app import views
 
-from project_app.api.others import *
-from project_app.api.product import ProductView
+from .product import ProductView
+from .others import (
+  crawling_category_set_data,
+  get_kakaofriends_crawling_all,
+  csv_sync_db
+  )
 
 urlpatterns = [
-  path('crawl_kakaopage', get_kakaofriends_crawling),
+  path('crawl_kakaopage', get_kakaofriends_crawling_all),
+  path('csv_to_db', csv_sync_db),
   path('product', ProductView.as_view())
 ]

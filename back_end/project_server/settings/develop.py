@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, sys
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+with open(os.path.join(BASE_DIR.parent, 'env/env.json'), 'r') as f:
+    config = json.load(f)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -81,25 +85,8 @@ WSGI_APPLICATION = 'project_server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# DATABASES = {
-#     'default' : {
-#         'ENGINE': 'mysql.connector.django',
-#         'NAME': 'kakaofriends_clone_db',
-#         'USER': 'root',
-#         'PASSWORD': '1234',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#     }
-# }
-
-# Oracle DB SERVER 연동 예정
+# DATABASES = config["LOCAL_ENV_DATABASES"]
+DATABASES = config["DEVELOP_ENV_DATABASES"]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -139,8 +126,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000', # React local-dev domain
 )
 
 CORS_ALLOW_CREDENTIALS = True # 자격 증명 허용 ( 프론트에서 Axios 로 요청 보낼때 withCredition 을 사용하는 것에 대응 )
+
+CSRF_COOKIE_NAME = "csrftoken"
