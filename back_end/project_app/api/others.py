@@ -12,6 +12,8 @@ from django.contrib.auth import authenticate, login, logout, models
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+def ping(req):
+  return HttpResponse('pong', status=200)
 
 def csv_sync_db(req):
   """
