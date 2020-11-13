@@ -1,3 +1,11 @@
 GET_LIST_PRODUCT = """
-  SELECT * FROM project_app_product LIMIT 10
+  SELECT 
+    id,
+    price,
+    product_name AS name,
+    img_path AS path
+    FROM
+      project_app_product
+      ORDER BY id DESC
+      LIMIT {0}, {1}
 """
