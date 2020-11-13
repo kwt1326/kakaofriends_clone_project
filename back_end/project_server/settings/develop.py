@@ -27,9 +27,9 @@ with open(os.path.join(BASE_DIR.parent, 'env/env.json'), 'r') as f:
 SECRET_KEY = '8yui54p0twusy-9ln5c7^)!b7k^on)q7&h1r@43)jd0(tei@6+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,14 +83,9 @@ WSGI_APPLICATION = 'project_server.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-# DATABASES = config["LOCAL_ENV_DATABASES"]
 DATABASES = config["DEVELOP_ENV_DATABASES"]
 
 # Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -136,7 +131,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000', # React local-dev domain
+    #'http://localhost:3000', # React local-dev domain
+    '*'
 )
 
 CORS_ALLOW_CREDENTIALS = True # 자격 증명 허용 ( 프론트에서 Axios 로 요청 보낼때 withCredition 을 사용하는 것에 대응 )
