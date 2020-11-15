@@ -26,6 +26,10 @@ def login(request, social):
 
     social = social.upper()
 
+    if social_check(social) != True:
+        result['message'] = social_check(social)
+        return AppResponse(result)
+
     AUTH_URL = eval(f'constant.{social}_AUTH_URL')
     CLIENT_ID = eval(f'constant.{social}_CLIENT_ID')
     CALLBACK_URL = eval(f'constant.{social}_CALLBACK_URL')
@@ -51,6 +55,10 @@ def login_callback(request, social):
     result = response.result(request.path)
 
     social = social.upper()
+
+    if social_check(social) != True:
+        result['message'] = social_check(social)
+        return AppResponse(result)
 
     TOKEN_URL = eval(f'constant.{social}_TOKEN_URL')
     CLIENT_ID = eval(f'constant.{social}_CLIENT_ID')
@@ -96,3 +104,12 @@ def login_callback(request, social):
     result['code'] = 'SUCCESS'
 
     return AppResponse(result)
+
+
+def social_check(social):
+    social = social.upper()
+
+    if social in ['NAVER', 'KAKAO', 'GOOGLE']:
+        return True
+
+    return '오류 메시지 수정'
