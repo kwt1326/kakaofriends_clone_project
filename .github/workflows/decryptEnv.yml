@@ -1,6 +1,9 @@
 name: decrypt_enviroment
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   decrypt_enviroment:
