@@ -5,8 +5,8 @@ COPY . /app/
 WORKDIR /app
 RUN pip install --upgrade -r requirements.txt
 CMD ["sh", "-c", "gunicorn \
-    -worker 3 \
+    -w 3 \
     --max-requests 500 \
     --max-requests-jitter 50 \
     --bind 0.0.0.0:$RUN_PORT \
-    app:app"]
+    project_server.wsgi:application"]
