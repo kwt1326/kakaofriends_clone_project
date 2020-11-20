@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  kakaofriends_clone:
+    container_name: kakaofriends_clone
+    image: kwt1326/kakaofriends_clone
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      - RUN_PORT=8000
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+  nginx:
+    image: kwt1326/kakaofriends_clone_nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+    expose:
+      - "80"
+    depends_on:
+      - kakaofriends_clone
