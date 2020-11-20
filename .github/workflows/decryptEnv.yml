@@ -1,6 +1,9 @@
 name: decrypt_enviroment
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   decrypt_enviroment:
@@ -9,11 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt env.json.gpg
-        run: ./back_end/decryptenv.sh
+        run: ./back_end/_decryptenv.sh
         env:
           ENV_DECRYPE_PW: ${{ secrets.ENV_DECRYPE_PW }}
-      # This command is just an example to show your secret being printed
-      # Ensure you remove any print statements of your secrets. GitHub does
-      # not hide secrets that use this workaround.
-      - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/env/env.json

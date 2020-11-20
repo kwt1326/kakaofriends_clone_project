@@ -1,5 +1,6 @@
 #!/bin/sh
 
-mkdir $HOME/env
+cd back_end
+mkdir env
 gpg --quiet --batch --yes --decrypt --passphrase="$ENV_DECRYPE_PW" \
---output $HOME/env/env.json env.json.gpg
+--output ./env/env.json env.json.gpg
