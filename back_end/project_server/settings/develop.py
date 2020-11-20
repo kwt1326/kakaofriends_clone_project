@@ -130,10 +130,14 @@ REST_FRAMEWORK = {
     ),
 }
 
-CORS_ORIGIN_WHITELIST = (
+CORS_ALLOWED_ORIGINS = [
     #'http://localhost:3000', # React local-dev domain
     '*'
-)
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    '*',
+]
 
 CORS_ALLOW_CREDENTIALS = True # 자격 증명 허용 ( 프론트에서 Axios 로 요청 보낼때 withCredition 을 사용하는 것에 대응 )
 
