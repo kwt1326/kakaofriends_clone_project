@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-//import * as Router from "react-router";
+import * as Router from "react-router";
 import HeaderList from "./headerList";
 import * as S from "./header_styles";
 import { Link } from "react-router-dom";
 const imageMypage = require("../../assets/images/icon_header_mypage.png");
 const imageBusket = require("../../assets/images/icon_header_basket.png");
 
-const Header = () => {
+const Header = (props: any) => {
   const [isHovered, SetIsHovered] = useState(false);
   const handleHover = () => {
     SetIsHovered(!isHovered);
   };
+  //  console.log(props);
   return (
     <div>
       <S.MainHeader>
@@ -42,11 +43,11 @@ const Header = () => {
       </S.MainHeader>
       {isHovered && (
         <S.MainMenuDiv onMouseLeave={handleHover}>
-          <HeaderList />
+          <HeaderList props={props} />
         </S.MainMenuDiv>
       )}
     </div>
   );
 };
 
-export default Header;
+export default Router.withRouter(Header);

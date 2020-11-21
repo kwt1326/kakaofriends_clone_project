@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MapCard from "./mapCard";
+import MapCard from "../../Components/Info_mapCard/mapCard";
 import * as S from "./info_styles";
 const Info = () => {
   let [index, setIndex] = useState(0);

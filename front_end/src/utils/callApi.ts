@@ -1,12 +1,12 @@
-import axios, { AxiosRequestConfig } from 'axios'
-import { serverUrl } from '../constant/config';
+import axios, { AxiosRequestConfig } from "axios";
+import { serverUrl } from "../config.js";
 // import getCookie from './getCookie'
 
 export interface callApiProps {
-  method: AxiosRequestConfig["method"],
-  url: string,
-  body?: Object,
-  headers?: Object,
+  method: AxiosRequestConfig["method"];
+  url: string;
+  body?: Object;
+  headers?: Object;
 }
 
 export const axiosApiCall = (data: callApiProps) => {
@@ -16,21 +16,22 @@ export const axiosApiCall = (data: callApiProps) => {
       url: `${serverUrl()}${data.url}`,
       data: data.body || {},
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',  
+        Accept: "application/json",
+        "Content-Type": "application/json",
         // 'X-CSRFToken': csrfToken, // 필요할 경우 해제
         ...data.headers,
-      }
-    }
+      },
+    };
 
-    return axios(requestConfig
-    ).then(response => {
-      return response;
-    }).catch(err => {
-      return err;
-    })
+    return axios(requestConfig)
+      .then((response) => {
+        return response;
+      })
+      .catch((err) => {
+        return err;
+      });
   } catch (err) {
-    console.log(`failed request: ${serverUrl()}${data.url}`)
+    console.log(`failed request: ${serverUrl()}${data.url}`);
     return err;
   }
-}
+};
